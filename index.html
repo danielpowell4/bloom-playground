@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    @import 'https://fonts.googleapis.com/css?family=Rubik';
+    @import 'https://fonts.googleapis.com/css?family=Rubik|Lato';
     *{
       box-sizing: border-box;
       margin: 0;
@@ -34,15 +34,67 @@
       align-items: center;
     }
     .grid-item{
+      position: relative;
       border: .4rem solid #e8e8e7;
       max-width: 420px;
       width: 100%;
+      transition: all 300ms ease-in-out;
     }
     .grid-item img{
       width: 420px;
       max-width: 100%;
-
       height: auto;
+    }
+    a:hover img {
+      -webkit-filter: blur(.125rem);
+    }
+    .tooltiptext {
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      font-family: "Rubik";
+      font-size: 2rem;
+      padding: 1rem 4rem 4rem;
+      box-sizing: border-box;
+      border-top: .05rem solid #121314;
+      transition: opacity 200ms ease-in-out;
+    }
+    a:hover .tooltiptext {
+      opacity: .8;
+      mix-blend-mode: luminosity;
+      transition: opacity 332ms ease-in-out;
+    }
+    .bottom-bar {
+        z-index: 3;
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3.5rem;
+        background-color: #343231;
+        border-bottom: #000 solid .325rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-family: "Rubik";
+        transition: opacity 341ms ease-in-out;
+    }
+    a:hover .bottom-bar{
+      opacity: .8;
+      mix-blend-mode: multiply;
+      transition: opacity 654ms ease-in-out;
     }
   </style>
 </head>
@@ -59,26 +111,17 @@
 
     var items = [
       {
-        title: 'Accent Grow Card Animation',
-        image: 'images/two-accent-card-animation-july-10.gif',
-        link: 'http://codepen.io/bloom-dan/pen/WxkGmK'
-      },
-      {
-        title:'Rotate Rubiks Meny Item',
-        image: 'images/rotate-rubiks-menu-item-aug-2-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/JKaXkr'
-      },{
         title:"OMalley's CTA",
         image:'images/o-microinteraction-buttons.gif',
         link: 'http://codepen.io/bloom-dan/pen/xOXRKk'
       },{
+        title: 'Accent Grow Card Animation',
+        image: 'images/two-accent-card-animation-july-10.gif',
+        link: 'http://codepen.io/bloom-dan/pen/WxkGmK'
+      },{
         title: 'Line EaseInOut On Nav',
         image: 'images/line-easeinout-on-nav=aug-02-2016.gif',
         link: 'http://codepen.io/bloom-dan/pen/PzRrbX'
-      },{
-        title:'Psuedo Element Gambling Hover',
-        image: 'images/gambling-psuedo-element-hover-aug-01-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/mEGZbY'
       },{
         title: 'Card Flattens on Hover',
         image: 'images/card-flattens-on-hover.gif',
@@ -88,18 +131,28 @@
         image: 'images/bottom-card-grow-in-animation-jul-8.gif',
         link:'http://codepen.io/bloom-dan/pen/GqrkRO/'
       },{
+        title:'Psuedo Element Gambling Hover',
+        image: 'images/gambling-psuedo-element-hover-aug-01-2016.gif',
+        link: 'http://codepen.io/bloom-dan/pen/mEGZbY'
+      },{
+        title:'Rotate Rubiks Meny Item',
+        image: 'images/rotate-rubiks-menu-item-aug-2-2016.gif',
+        link: 'http://codepen.io/bloom-dan/pen/JKaXkr'
+      },{
         title: 'Hue Rotation',
         image: 'images/hue-rotation-aug-03-2016.gif',
         link:'http://codepen.io/bloom-dan/pen/bZmGOB'
       }
     ];
+    items.reverse();
     $.each(items, function( i, val ) {
       item = items[i];
 
       $('.grid').append(
         '<a class="grid-item" href="' + item.link + '">' +
           '<img src="' + item.image + '">' +
-
+          '<span class="tooltiptext">' + item.title + '</span>' +
+          '<span class="bottom-bar">View on CodePen</span>' +
         '</a>'
       );
     });
