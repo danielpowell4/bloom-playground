@@ -61,42 +61,46 @@
       {
         title: 'Accent Grow Card Animation',
         image: 'images/two-accent-card-animation-july-10.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/WxkGmK'
       },
       {
         title:'Rotate Rubiks Meny Item',
         image: 'images/rotate-rubiks-menu-item-aug-2-2016.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/JKaXkr'
       },{
         title:"OMalley's CTA",
         image:'images/o-microinteraction-buttons.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/xOXRKk'
       },{
         title: 'Line EaseInOut On Nav',
         image: 'images/line-easeinout-on-nav=aug-02-2016.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/PzRrbX'
       },{
         title:'Psuedo Element Gambling Hover',
         image: 'images/gambling-psuedo-element-hover-aug-01-2016.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/mEGZbY'
       },{
         title: 'Card Flattens on Hover',
         image: 'images/card-flattens-on-hover.gif',
-        link: ''
+        link: 'http://codepen.io/bloom-dan/pen/grxrjA'
       },{
         title: 'Bottom Card Grow in Animation',
         image: 'images/bottom-card-grow-in-animation-jul-8.gif',
-        link:''
-      },
+        link:'http://codepen.io/bloom-dan/pen/GqrkRO/'
+      },{
+        title: 'Hue Rotation',
+        image: 'images/hue-rotation-aug-03-2016.gif.gif',
+        link:'http://codepen.io/bloom-dan/pen/bZmGOB'
+      }
     ];
     $.each(items, function( i, val ) {
       item = items[i];
 
       $('.grid').append(
-        '<div class="grid-item">' +
+        '<a class="grid-item" href="' + image.link + '">' +
           '<img src="' + item.image + '">' +
 
-        '</div>'
+        '</a>'
       );
     });
 
