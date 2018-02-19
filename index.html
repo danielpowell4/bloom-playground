@@ -142,11 +142,10 @@
     <h1>
       bloom's playground
     </h1>
-    <h5 class="pen-count"></h5>
-    <div class="grid">
+    <h5 id="pen-count" class="pen-count"></h5>
+    <div id="grid" class="grid">
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js"></script>
   <script>
 var items = [
   {
@@ -368,11 +367,13 @@ var items = [
 items.reverse();
 
 var count = 0;
+var grid = document.getElementById("grid");
+var penCount = document.getElementById("pen-count");
 
-$.each(items, function(i, val) {
+items.forEach(function(val, i) {
   item = items[i];
   count++;
-  $(".grid").append(
+  grid.innerHTML +=
     '<a class="grid-item" href="' +
       item.link +
       '">' +
@@ -383,9 +384,8 @@ $.each(items, function(i, val) {
       item.title +
       "</span>" +
       '<span class="bottom-bar">View on CodePen</span>' +
-      "</a>"
-  );
-  $(".pen-count").text("Count: " + count);
+      "</a>";
+  penCount.textContent = "Count: " + count;
 });
 </script>
 </body>
