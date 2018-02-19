@@ -368,7 +368,6 @@ items.reverse();
 
 var count = 0;
 var grid = document.getElementById("grid");
-var penCount = document.getElementById("pen-count");
 
 items.forEach(function(val, i) {
   item = items[i];
@@ -385,7 +384,8 @@ items.forEach(function(val, i) {
       "</span>" +
       '<span class="bottom-bar">View on CodePen</span>' +
       "</a>";
-  penCount.textContent = "Count: " + count;
 });
+
+document.getElementById("pen-count").textContent = "Count: " + count;
 </script>
 </body>
