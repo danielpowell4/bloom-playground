@@ -148,177 +148,214 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js"></script>
   <script>
+var items = [
+  {
+    title: "Scrolling Text Screen 3P",
+    image: "/images/scrolling-text-screen-may-4.gif",
+    link: "http://codepen.io/dan-3p/pen/zqJKaJ",
+  },
+  {
+    title: "OMalley's CTA",
+    image: "/images/o-microinteraction-buttons.gif",
+    link: "http://codepen.io/bloom-dan/pen/xOXRKk",
+  },
+  {
+    title: "Accent Grow Card Animation",
+    image: "/images/two-accent-card-animation-july-10.gif",
+    link: "http://codepen.io/bloom-dan/pen/WxkGmK",
+  },
+  {
+    title: "Our Locations Grow Transform",
+    image: "/images/our-locations-july-7-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/MeWKWa",
+  },
+  {
+    title: "Wired Shadow Link Decoration",
+    image: "/images/wired-shadow-link-accent.gif",
+    link: "http://codepen.io/bloom-dan/pen/LkZoGP",
+  },
+  {
+    title: "Line EaseInOut On Nav",
+    image: "/images/line-easeinout-on-nav=aug-02-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/PzRrbX",
+  },
+  {
+    title: "Checkbox Hack Mobile Menu",
+    image: "/images/checkbox-hack-mobile-menu.gif",
+    link: "http://codepen.io/bloom-dan/pen/vKdoar",
+  },
+  {
+    title: "Card Flattens on Hover",
+    image: "/images/card-flattens-on-hover.gif",
+    link: "http://codepen.io/bloom-dan/pen/grxrjA",
+  },
+  {
+    title: "Vox Light -> Dark Link Underline",
+    image: "/images/vox-link-accent.gif",
+    link: "http://codepen.io/bloom-dan/pen/EyovgL",
+  },
+  {
+    title: "Bottom Card Grow in Animation",
+    image: "/images/bottom-card-grow-in-animation-jul-8.gif",
+    link: "http://codepen.io/bloom-dan/pen/GqrkRO/",
+  },
+  {
+    title: "Howdy.ai Color Generator",
+    image: "/images/howdy-color-generator-july-26-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/dXZyRp",
+  },
+  {
+    title: "Pseudo Element Gambling Hover",
+    image: "/images/gambling-psuedo-element-hover-aug-01-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/mEGZbY",
+  },
+  {
+    title: "Rotate Rubiks Menu Item",
+    image: "/images/rotate-rubiks-menu-item-aug-2-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/JKaXkr",
+  },
+  {
+    title: "Hue Rotation",
+    image: "images/hue-rotation-aug-03-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/bZmGOB",
+  },
+  {
+    title: "Cubic-bezier Load Left",
+    image: "images/cubic-bezier-button-load-left.gif",
+    link: "http://codepen.io/bloom-dan/pen/jAZvkz",
+  },
+  {
+    title: "Active State Button Animation",
+    image: "images/back-to-top-button-hover-active-labels-aug-08-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/XKyaAE",
+  },
+  {
+    title: "Flat Button :hover Shadow",
+    image: "images/flat-button-shadow-hover.gif",
+    link: "http://codepen.io/bloom-dan/pen/akPjqW",
+  },
+  {
+    title: "Flat UI Grid + Dots",
+    image: "images/flat-grid-w-glare-aug-22-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/grJoLZ",
+  },
+  {
+    title: "FB Flat Loading Shimmer",
+    image: "images/facebook-loading-shimmer-aug-23-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/OXYQay",
+  },
+  {
+    title: "Subtle Linear Gradient Shift on Hover",
+    image: "images/subtle-linear-gradient-text-aug-29-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/ZpzYKV",
+  },
+  {
+    title: "Flat Buttons' Striped Pseudo Shadows",
+    image: "images/flat-buttons-psuedo-striped-shadows-aug-30-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/dpbWRz",
+  },
+  {
+    title: "1 Elemenet Pseudo Hamburgers",
+    image: "images/1-element-pseudo.png",
+    link: "http://codepen.io/bloom-dan/pen/bwpabj",
+  },
+  {
+    title: "Ace full height footer",
+    image: "images/ace-full-height-footer.gif",
+    link: "http://codepen.io/bloom-dan/pen/rrLdok",
+  },
+  {
+    title: "CSS only menu from left",
+    image: "images/checkbox-menu-from-left.gif",
+    link: "http://codepen.io/bloom-dan/pen/QKEAbB",
+  },
+  {
+    title: "Flat buttons linear lengthen",
+    image: "images/flat-button-linear-lengthen-sep-18-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/ozzgoz",
+  },
+  {
+    title: "Button 1px down on click",
+    image: "images/translate-down-on-click.gif",
+    link: "http://codepen.io/bloom-dan/pen/mAREaN",
+  },
+  {
+    title: "Highlighter menu highlights",
+    image: "images/highlight-menu-accents-sep-22-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/pERYkE",
+  },
+  {
+    title: "404-y glitch animation",
+    image: "images/glitch-animation-sept-29-16.gif",
+    link: "http://codepen.io/bloom-dan/pen/ozZEPA",
+  },
+  {
+    title: "Floating hashed windows",
+    image: "images/floating-hashed-backgrounds-oct-7-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/JRpKoL",
+  },
+  {
+    title: "Basic D3 Bar Chart w/ Tip",
+    image: "images/basic-d3-bar-chart-with-tip-oct-9-16.gif",
+    link: "http://codepen.io/bloom-dan/pen/RGxxxV",
+  },
+  {
+    title: "D3 Bubble Bar Chart",
+    image: "images/d3-bubble-chart-oct-28-2016.gif",
+    link: "http://codepen.io/bloom-dan/pen/amApBm",
+  },
+  {
+    title: "CSS only color filter",
+    image: "images/css-only-color-filter-nov-16-16.gif",
+    link: "http://codepen.io/bloom-dan/pen/yVaqVQ",
+  },
+  {
+    title: "CSS Counter Cards",
+    image: "images/css-counter-cards-nov-20-16.gif",
+    link: "http://codepen.io/bloom-dan/pen/gLmabb",
+  },
+  {
+    title: "Animated Vision Circles",
+    image: "images/trippy-css-circles-nov-22-16.gif",
+    link: "http://codepen.io/bloom-dan/pen/jVmwaB",
+  },
+  {
+    title: "Mobile First Linked Banner",
+    image: "images/mobile-first-linked-banner-jan-03-2017.gif",
+    link: "http://codepen.io/bloom-dan/pen/GrRXWe/",
+  },
+  {
+    title: "Obama's Keyframe Button",
+    image: "images/obamas-keyframe-button-jan-30-2017.gif",
+    link: "http://codepen.io/bloom-dan/pen/GryVoK",
+  },
+  {
+    title: "Form w/ Floating Labels",
+    image: "images/form-with-floating-labels_mar-07-2017.gif",
+    link: "http://codepen.io/bloom-dan/pen/NpbbrV",
+  }
+];
+items.reverse();
 
-    var items = [
-      {
-        title: 'Scrolling Text Screen 3P',
-        image: '/images/scrolling-text-screen-may-4.gif',
-        link:'http://codepen.io/dan-3p/pen/zqJKaJ'
-      },{
-        title:"OMalley's CTA",
-        image:'/images/o-microinteraction-buttons.gif',
-        link: 'http://codepen.io/bloom-dan/pen/xOXRKk'
-      },{
-        title: 'Accent Grow Card Animation',
-        image: '/images/two-accent-card-animation-july-10.gif',
-        link: 'http://codepen.io/bloom-dan/pen/WxkGmK'
-      },{
-        title: 'Our Locations Grow Transform',
-        image: '/images/our-locations-july-7-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/MeWKWa'
-      },{
-        title: 'Wired Shadow Link Decoration',
-        image: '/images/wired-shadow-link-accent.gif',
-        link: 'http://codepen.io/bloom-dan/pen/LkZoGP'
-      },{
-        title: 'Line EaseInOut On Nav',
-        image: '/images/line-easeinout-on-nav=aug-02-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/PzRrbX'
-      },{
-        title: 'Checkbox Hack Mobile Menu',
-        image: '/images/checkbox-hack-mobile-menu.gif',
-        link: 'http://codepen.io/bloom-dan/pen/vKdoar'
-      },{
-        title: 'Card Flattens on Hover',
-        image: '/images/card-flattens-on-hover.gif',
-        link: 'http://codepen.io/bloom-dan/pen/grxrjA'
-      },{
-        title: 'Vox Light -> Dark Link Underline',
-        image: '/images/vox-link-accent.gif',
-        link: 'http://codepen.io/bloom-dan/pen/EyovgL'
-      },{
-        title: 'Bottom Card Grow in Animation',
-        image: '/images/bottom-card-grow-in-animation-jul-8.gif',
-        link:'http://codepen.io/bloom-dan/pen/GqrkRO/'
-      },{
-        title: 'Howdy.ai Color Generator',
-        image: '/images/howdy-color-generator-july-26-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/dXZyRp'
-      },{
-        title:'Pseudo Element Gambling Hover',
-        image: '/images/gambling-psuedo-element-hover-aug-01-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/mEGZbY'
-      },{
-        title:'Rotate Rubiks Menu Item',
-        image: '/images/rotate-rubiks-menu-item-aug-2-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/JKaXkr'
-      },{
-        title: 'Hue Rotation',
-        image: 'images/hue-rotation-aug-03-2016.gif',
-        link:'http://codepen.io/bloom-dan/pen/bZmGOB'
-      },{
-        title: 'Cubic-bezier Load Left',
-        image: 'images/cubic-bezier-button-load-left.gif',
-        link:'http://codepen.io/bloom-dan/pen/jAZvkz'
-      },{
-        title: 'Active State Button Animation',
-        image: 'images/back-to-top-button-hover-active-labels-aug-08-2016.gif',
-        link:'http://codepen.io/bloom-dan/pen/XKyaAE'
-      },{
-        title: 'Flat Button :hover Shadow',
-        image: 'images/flat-button-shadow-hover.gif',
-        link:'http://codepen.io/bloom-dan/pen/akPjqW'
-      },{
-        title: 'Flat UI Grid + Dots',
-        image: 'images/flat-grid-w-glare-aug-22-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/grJoLZ'
-      },{
-        title: 'FB Flat Loading Shimmer',
-        image: 'images/facebook-loading-shimmer-aug-23-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/OXYQay'
-      },{
-        title: 'Subtle Linear Gradient Shift on Hover',
-        image: 'images/subtle-linear-gradient-text-aug-29-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/ZpzYKV'
-      },{
-        title: 'Flat Buttons\' Striped Pseudo Shadows',
-        image: 'images/flat-buttons-psuedo-striped-shadows-aug-30-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/dpbWRz'
-      },{
-        title: '1 Elemenet Pseudo Hamburgers',
-        image: 'images/1-element-pseudo.png',
-        link: 'http://codepen.io/bloom-dan/pen/bwpabj'
-      },{
-        title: 'Ace full height footer',
-        image: 'images/ace-full-height-footer.gif',
-        link: 'http://codepen.io/bloom-dan/pen/rrLdok'
-      },{
-        title: 'CSS only menu from left',
-        image: 'images/checkbox-menu-from-left.gif',
-        link: 'http://codepen.io/bloom-dan/pen/QKEAbB'
-      },{
-        title: 'Flat buttons linear lengthen',
-        image: 'images/flat-button-linear-lengthen-sep-18-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/ozzgoz'
-      },{
-        title: 'Button 1px down on click',
-        image: 'images/translate-down-on-click.gif',
-        link: 'http://codepen.io/bloom-dan/pen/mAREaN'
-      },{
-        title: 'Highlighter menu highlights',
-        image: 'images/highlight-menu-accents-sep-22-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/pERYkE'
-      },{
-        title: '404-y glitch animation',
-        image: 'images/glitch-animation-sept-29-16.gif',
-        link: 'http://codepen.io/bloom-dan/pen/ozZEPA'
-      },{
-        title: 'Floating hashed windows',
-        image: 'images/floating-hashed-backgrounds-oct-7-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/JRpKoL'
-      },{
-        title: 'Basic D3 Bar Chart w/ Tip',
-        image: 'images/basic-d3-bar-chart-with-tip-oct-9-16.gif',
-        link: 'http://codepen.io/bloom-dan/pen/RGxxxV'
-      },{
-        title: 'D3 Bubble Bar Chart',
-        image: 'images/d3-bubble-chart-oct-28-2016.gif',
-        link: 'http://codepen.io/bloom-dan/pen/amApBm'
-      },{
-        title: 'CSS only color filter',
-        image: 'images/css-only-color-filter-nov-16-16.gif',
-        link: 'http://codepen.io/bloom-dan/pen/yVaqVQ'
-      },{
-        title: 'CSS Counter Cards',
-        image: 'images/css-counter-cards-nov-20-16.gif',
-        link: 'http://codepen.io/bloom-dan/pen/gLmabb'
-      },{
-        title: 'Animated Vision Circles',
-        image: 'images/trippy-css-circles-nov-22-16.gif',
-        link: 'http://codepen.io/bloom-dan/pen/jVmwaB'
-      },{
-        title: 'Mobile First Linked Banner',
-        image: 'images/mobile-first-linked-banner-jan-03-2017.gif',
-        link: 'http://codepen.io/bloom-dan/pen/GrRXWe/'
-      },{
-        title: 'Obama\'s Keyframe Button',
-        image: 'images/obamas-keyframe-button-jan-30-2017.gif',
-        link: 'http://codepen.io/bloom-dan/pen/GryVoK'
-      },{
-        title: 'Form w/ Floating Labels',
-        image: 'images/form-with-floating-labels_mar-07-2017.gif',
-        link: 'http://codepen.io/bloom-dan/pen/NpbbrV'
-      }
+var count = 0;
 
-
-    ];
-    items.reverse();
-
-    var count = 0;
-
-    $.each(items, function( i, val ) {
-      item = items[i];
-      count ++;
-      $('.grid').append(
-        '<a class="grid-item" href="' + item.link + '">' +
-          '<img src="' + item.image + '">' +
-          '<span class="tooltiptext">' + item.title + '</span>' +
-          '<span class="bottom-bar">View on CodePen</span>' +
-        '</a>'
-      );
-      $('.pen-count').text('Count: ' + count);
-    });
-
-
-  </script>
+$.each(items, function(i, val) {
+  item = items[i];
+  count++;
+  $(".grid").append(
+    '<a class="grid-item" href="' +
+      item.link +
+      '">' +
+      '<img src="' +
+      item.image +
+      '">' +
+      '<span class="tooltiptext">' +
+      item.title +
+      "</span>" +
+      '<span class="bottom-bar">View on CodePen</span>' +
+      "</a>"
+  );
+  $(".pen-count").text("Count: " + count);
+});
+</script>
 </body>
