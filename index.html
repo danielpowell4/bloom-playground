@@ -1,454 +1,461 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import "https://fonts.googleapis.com/css?family=Rubik|Lato";
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @import 'https://fonts.googleapis.com/css?family=Rubik|Lato';
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        background-color: #f2f2f2;
+        background-image: url("images/geometry2.png");
+      }
 
-    body {
-      background-color: #f2f2f2;
-      background-image: url('images/geometry2.png');
-    }
+      .main-wrap {
+        padding-top: 0.45rem;
+      }
 
-    .main-wrap {
-      padding-top: .45rem;
-    }
+      h1 {
+        margin: 2rem auto;
+        text-align: center;
+        font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol";
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        max-width: 360px;
+        width: 80%;
+      }
 
-    h1 {
-      margin: 2rem auto;
-      text-align: center;
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      padding-bottom: 1rem;
-      display: flex;
-      justify-content: center;
-      max-width: 360px;
-      width: 80%;
-    }
+      h5 {
+        margin-top: 1rem;
+        font-family: "Rubik";
+        text-align: center;
+        color: #dfebf1;
+      }
 
-    h5 {
-      margin-top: 1rem;
-      font-family: "Rubik";
-      text-align: center;
-      color: #dfebf1;
-    }
+      .grid {
+        max-width: 720px;
+        width: 100%;
+        padding: 1.7rem 0.85rem;
+        margin: 2rem auto;
+        background-color: #dfebf1;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .grid {
-      max-width: 720px;
-      width: 100%;
-      padding: 1.7rem .85rem;
-      margin: 2rem auto;
-      background-color: #dfebf1;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      flex-direction: column;
-      align-items: center;
-    }
+      .grid-item:first-of-type {
+        position: relative;
+        border: 0.45rem solid #fff;
+        max-width: 420px;
+        width: 100%;
+        transition: all 300ms ease-in-out;
+      }
 
-    .grid-item:first-of-type {
-      position: relative;
-      border: .45rem solid #fff;
-      max-width: 420px;
-      width: 100%;
-      transition: all 300ms ease-in-out;
-    }
+      .grid-item {
+        position: relative;
+        border-left: 0.5rem solid #fff;
+        border-right: 0.5rem solid #fff;
+        border-bottom: 1rem solid #fff;
+        max-width: 420px;
+        min-height: 190px;
+        width: 100%;
+        transition: all 300ms ease-in-out;
+      }
 
-    .grid-item {
-      position: relative;
-      border-left: .5rem solid #fff;
-      border-right: .5rem solid #fff;
-      border-bottom: 1rem solid #fff;
-      max-width: 420px;
-      min-height: 190px;
-      width: 100%;
-      transition: all 300ms ease-in-out;
-    }
-
-    .grid-item img {
-      width: 420px;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a:hover img {
-      -webkit-filter: blur(.125rem);
-    }
-
-    .tooltiptext {
-      opacity: 0;
-      z-index: 1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #555;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-      font-family: "Rubik";
-      font-size: 2rem;
-      padding: 1rem 4rem 4rem;
-      box-sizing: border-box;
-      border-top: .05rem solid #121314;
-      transition: opacity 200ms ease-in-out;
-    }
-
-    a:hover .tooltiptext {
-      opacity: .8;
-      mix-blend-mode: luminosity;
-      transition: opacity 332ms ease-in-out;
-    }
-
-    .bottom-bar {
-      z-index: 3;
-      opacity: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3.5rem;
-      background-color: #343231;
-      border-bottom: #000 solid .325rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-family: "Rubik";
-      transition: opacity 341ms ease-in-out;
-    }
-
-    a:hover .bottom-bar {
-      opacity: .8;
-      mix-blend-mode: multiply;
-      transition: opacity 654ms ease-in-out;
-    }
-
-    .logo img {
-      position: fixed;
-      z-index: 9;
-      top: 0;
-      left: 0;
-      max-width: 12vw;
-      border-right: .5rem solid #dfebf1;
-    }
-
-    @media screen and (min-width: 640px) {
-      .logo {
-        position: fixed;
+      .grid-item img {
+        width: 420px;
         max-width: 100%;
+        height: auto;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <nav>
-    <aside class="logo">
-      <img src="/images/bloom-logo-80.png" alt="Bloom Interactive Logo">
-    </aside>
-  </nav>
-  <div class="main-wrap">
-    <h1>
-      bloom's playground
-    </h1>
-    <h5 id="pen-count" class="pen-count"></h5>
-    <div id="grid" class="grid">
+      a:hover img {
+        -webkit-filter: blur(0.125rem);
+      }
+
+      .tooltiptext {
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+        font-family: "Rubik";
+        font-size: 2rem;
+        padding: 1rem 4rem 4rem;
+        box-sizing: border-box;
+        border-top: 0.05rem solid #121314;
+        transition: opacity 200ms ease-in-out;
+      }
+
+      a:hover .tooltiptext {
+        opacity: 0.8;
+        mix-blend-mode: luminosity;
+        transition: opacity 332ms ease-in-out;
+      }
+
+      .bottom-bar {
+        z-index: 3;
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3.5rem;
+        background-color: #343231;
+        border-bottom: #000 solid 0.325rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-family: "Rubik";
+        transition: opacity 341ms ease-in-out;
+      }
+
+      a:hover .bottom-bar {
+        opacity: 0.8;
+        mix-blend-mode: multiply;
+        transition: opacity 654ms ease-in-out;
+      }
+
+      .logo img {
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        max-width: 12vw;
+        border-right: 0.5rem solid #dfebf1;
+      }
+
+      @media screen and (min-width: 640px) {
+        .logo {
+          position: fixed;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <aside class="logo">
+        <img src="/images/bloom-logo-80.png" alt="Bloom Interactive Logo" />
+      </aside>
+    </nav>
+    <div class="main-wrap">
+      <h1>bloom's playground</h1>
+      <h5 id="pen-count" class="pen-count"></h5>
+      <div id="grid" class="grid"></div>
     </div>
-  </div>
-  <script>
-    var items = [
-      {
-        title: "Scrolling Text Screen 3P",
-        image: "/images/scrolling-text-screen-may-4.gif",
-        link: "https://codepen.io/bloom-dan/post/screened-text-color-overlay-step-by-step",
-      },
-      {
-        title: "OMalley's CTA",
-        image: "/images/o-microinteraction-buttons.gif",
-        link: "https://codepen.io/bloom-dan/pen/xOXRKk?editors=0100#1",
-      },
-      {
-        title: "Accent Grow Card Animation",
-        image: "/images/two-accent-card-animation-july-10.gif",
-        link: "https://codepen.io/bloom-dan/pen/WxkGmK?editors=0100#1",
-      },
-      {
-        title: "Our Locations Grow Transform",
-        image: "/images/our-locations-july-7-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/MeWKWa?editors=0100#1",
-      },
-      {
-        title: "Wired Shadow Link Decoration",
-        image: "/images/wired-shadow-link-accent.gif",
-        link: "https://codepen.io/bloom-dan/pen/LkZoGP?editors=0100#1",
-      },
-      {
-        title: "Line EaseInOut On Nav",
-        image: "/images/line-easeinout-on-nav=aug-02-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/PzRrbX?editors=0100#1",
-      },
-      {
-        title: "Checkbox Hack Mobile Menu",
-        image: "/images/checkbox-hack-mobile-menu.gif",
-        link: "https://codepen.io/bloom-dan/pen/vKdoar?editors=0100#1",
-      },
-      {
-        title: "Card Flattens on Hover",
-        image: "/images/card-flattens-on-hover.gif",
-        link: "https://codepen.io/bloom-dan/pen/grxrjA?editors=0100#1",
-      },
-      {
-        title: "Vox Light -> Dark Link Underline",
-        image: "/images/vox-link-accent.gif",
-        link: "https://codepen.io/bloom-dan/pen/EyovgL?editors=0100#1",
-      },
-      {
-        title: "Bottom Card Grow in Animation",
-        image: "/images/bottom-card-grow-in-animation-jul-8.gif",
-        link: "https://codepen.io/bloom-dan/pen/GqrkRO?editors=0100#1",
-      },
-      {
-        title: "Howdy.ai Color Generator",
-        image: "/images/howdy-color-generator-july-26-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/dXZyRp?editors=0100#1",
-      },
-      {
-        title: "Pseudo Element Gambling Hover",
-        image: "/images/gambling-psuedo-element-hover-aug-01-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/mEGZbY?editors=0100#1",
-      },
-      {
-        title: "Rotate Rubiks Menu Item",
-        image: "/images/rotate-rubiks-menu-item-aug-2-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/JKaXkr?editors=0100#1",
-      },
-      {
-        title: "Hue Rotation",
-        image: "images/hue-rotation-aug-03-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/bZmGOB?editors=0100#1",
-      },
-      {
-        title: "Cubic-bezier Load Left",
-        image: "images/cubic-bezier-button-load-left.gif",
-        link: "https://codepen.io/bloom-dan/pen/jAZvkz?editors=0100#1",
-      },
-      {
-        title: "Active State Button Animation",
-        image: "images/back-to-top-button-hover-active-labels-aug-08-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/XKyaAE?editors=0100#1",
-      },
-      {
-        title: "Flat Button :hover Shadow",
-        image: "images/flat-button-shadow-hover.gif",
-        link: "https://codepen.io/bloom-dan/pen/akPjqW?editors=0100#1",
-      },
-      {
-        title: "Flat UI Grid + Dots",
-        image: "images/flat-grid-w-glare-aug-22-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/grJoLZ?editors=0100#1",
-      },
-      {
-        title: "FB Flat Loading Shimmer",
-        image: "images/facebook-loading-shimmer-aug-23-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/OXYQay?editors=0100#1",
-      },
-      {
-        title: "Subtle Linear Gradient Shift on Hover",
-        image: "images/subtle-linear-gradient-text-aug-29-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/ZpzYKV?editors=0100#1",
-      },
-      {
-        title: "Flat Buttons' Striped Pseudo Shadows",
-        image: "images/flat-buttons-psuedo-striped-shadows-aug-30-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/dpbWRz?editors=0100#1",
-      },
-      {
-        title: "1 Elemenet Pseudo Hamburgers",
-        image: "images/1-element-pseudo.png",
-        link: "https://codepen.io/bloom-dan/pen/bwpabj?editors=0100#1",
-      },
-      {
-        title: "Ace full height footer",
-        image: "images/ace-full-height-footer.gif",
-        link: "https://codepen.io/bloom-dan/pen/rrLdok?editors=0100#1",
-      },
-      {
-        title: "CSS only menu from left",
-        image: "images/checkbox-menu-from-left.gif",
-        link: "https://codepen.io/bloom-dan/pen/QKEAbB?editors=0100#1",
-      },
-      {
-        title: "Flat buttons linear lengthen",
-        image: "images/flat-button-linear-lengthen-sep-18-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/ozzgoz?editors=0100#1",
-      },
-      {
-        title: "Button 1px down on click",
-        image: "images/translate-down-on-click.gif",
-        link: "https://codepen.io/bloom-dan/pen/mAREaN?editors=0100#1",
-      },
-      {
-        title: "Highlighter menu highlights",
-        image: "images/highlight-menu-accents-sep-22-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/pERYkE?editors=0100#1",
-      },
-      {
-        title: "404-y glitch animation",
-        image: "images/glitch-animation-sept-29-16.gif",
-        link: "https://codepen.io/bloom-dan/pen/ozZEPA?editors=0100#1",
-      },
-      {
-        title: "Floating hashed windows",
-        image: "images/floating-hashed-backgrounds-oct-7-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/JRpKoL?editors=0100#1",
-      },
-      {
-        title: "Basic D3 Bar Chart w/ Tip",
-        image: "images/basic-d3-bar-chart-with-tip-oct-9-16.gif",
-        link: "https://codepen.io/bloom-dan/pen/RGxxxV?editors=0100#1",
-      },
-      {
-        title: "D3 Bubble Bar Chart",
-        image: "images/d3-bubble-chart-oct-28-2016.gif",
-        link: "https://codepen.io/bloom-dan/pen/amApBm?editors=0100#1",
-      },
-      {
-        title: "CSS only color filter",
-        image: "images/css-only-color-filter-nov-16-16.gif",
-        link: "https://codepen.io/bloom-dan/pen/yVaqVQ?editors=0100#1",
-      },
-      {
-        title: "CSS Counter Cards",
-        image: "images/css-counter-cards-nov-20-16.gif",
-        link: "https://codepen.io/bloom-dan/pen/gLmabb?editors=0100#1",
-      },
-      {
-        title: "Animated Vision Circles",
-        image: "images/trippy-css-circles-nov-22-16.gif",
-        link: "https://codepen.io/bloom-dan/pen/jVmwaB?editors=0100#1",
-      },
-      {
-        title: "Mobile First Linked Banner",
-        image: "images/mobile-first-linked-banner-jan-03-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/GrRXWe?editors=0100#1",
-      },
-      {
-        title: "Obama's Keyframe Button",
-        image: "images/obamas-keyframe-button-jan-30-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/GryVoK?editors=0100#1",
-      },
-      {
-        title: "Form w/ Floating Labels",
-        image: "images/form-with-floating-labels_mar-07-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/NpbbrV?editors=0100#1",
-      },
-      {
-        title: "Spin in Button",
-        image: "images/spin-button-sept-20-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/GMZbJY?editors=0100#1",
-      },
-      {
-        title: "Fill up Button",
-        image: "images/fill-up-button-oct-23-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/zEQLqm?editors=0100#1",
-      },
-      {
-        title: "Agree or Die Button",
-        image: "images/agree-or-die-button-oct-26-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/gGVdeR?editors=0100#1",
-      },
-      {
-        title: "Underline, Engage Right",
-        image: "images/underline-engage-right-nov-8-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/NwbvYX?editors=0100#1",
-      },
-      {
-        title: "Sale Tag Shadow",
-        image: "images/sale-tag-shadow-feb-18-2018.png",
-        link: "https://codepen.io/bloom-dan/pen/mqvdQy?editors=0100#1",
-      },
-      {
-        title: "The Bop It Buttons",
-        image: "images/the-bop-it-buttons-sept-25-2017.gif",
-        link: "https://codepen.io/bloom-dan/pen/QqGQor?editors=0100#1",
-      },
-      {
-        title: "Footer Links Grow",
-        image: "images/menu-links-grow-feb-27-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/QQzdbe?editors=0100#1",
-      },
-      {
-        title: "Arrow Linked Locations",
-        image: "images/arrow-linked-locations-march-3-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/aqxKNj?editors=0100#1",
-      },
-      {
-        title: "✅ Ticket Keyframe",
-        image: "images/completed-ticket-keyframe-nov-04-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/GYgXqL?editors=0100"
-      },
-      {
-        title: "Moving Menu Accent onScroll",
-        image: "images/menu-accent-onscroll-nov-04-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/aQzNwJ?editors=0100#1",
-      },
-      {
-        title: "attr shuffle",
-        image: "images/attr-shuffle-nov-04-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/pQvPKj?editors=0100#1",
-      },
-      {
-        title: "button 's watching",
-        image: "images/eyeball-button-nov-05-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/dQodRW?editors=0010",
-      },{
-        title: "head + heart poly",
-        image: "images/head-and-heart-low-poly-nov-10-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/EOPGKo?editors=0010",
-      },
-      {
-        title: "staggered burger",
-        image: "images/staggered-burger-nov-14-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/BGRZqj?editors=0100",
-      },
-      {
-        title: "begin scrolling",
-        image: "images/begin-scroll-nov-18-2018.gif",
-        link: "https://codepen.io/bloom-dan/pen/qQPVJX?editors=0100"
-      }
-    ];
-    items.reverse();
+    <script>
+      var items = [
+        {
+          title: "Scrolling Text Screen 3P",
+          image: "/images/scrolling-text-screen-may-4.gif",
+          link:
+            "https://codepen.io/bloom-dan/post/screened-text-color-overlay-step-by-step",
+        },
+        {
+          title: "OMalley's CTA",
+          image: "/images/o-microinteraction-buttons.gif",
+          link: "https://codepen.io/bloom-dan/pen/xOXRKk?editors=0100#1",
+        },
+        {
+          title: "Accent Grow Card Animation",
+          image: "/images/two-accent-card-animation-july-10.gif",
+          link: "https://codepen.io/bloom-dan/pen/WxkGmK?editors=0100#1",
+        },
+        {
+          title: "Our Locations Grow Transform",
+          image: "/images/our-locations-july-7-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/MeWKWa?editors=0100#1",
+        },
+        {
+          title: "Wired Shadow Link Decoration",
+          image: "/images/wired-shadow-link-accent.gif",
+          link: "https://codepen.io/bloom-dan/pen/LkZoGP?editors=0100#1",
+        },
+        {
+          title: "Line EaseInOut On Nav",
+          image: "/images/line-easeinout-on-nav=aug-02-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/PzRrbX?editors=0100#1",
+        },
+        {
+          title: "Checkbox Hack Mobile Menu",
+          image: "/images/checkbox-hack-mobile-menu.gif",
+          link: "https://codepen.io/bloom-dan/pen/vKdoar?editors=0100#1",
+        },
+        {
+          title: "Card Flattens on Hover",
+          image: "/images/card-flattens-on-hover.gif",
+          link: "https://codepen.io/bloom-dan/pen/grxrjA?editors=0100#1",
+        },
+        {
+          title: "Vox Light -> Dark Link Underline",
+          image: "/images/vox-link-accent.gif",
+          link: "https://codepen.io/bloom-dan/pen/EyovgL?editors=0100#1",
+        },
+        {
+          title: "Bottom Card Grow in Animation",
+          image: "/images/bottom-card-grow-in-animation-jul-8.gif",
+          link: "https://codepen.io/bloom-dan/pen/GqrkRO?editors=0100#1",
+        },
+        {
+          title: "Howdy.ai Color Generator",
+          image: "/images/howdy-color-generator-july-26-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/dXZyRp?editors=0100#1",
+        },
+        {
+          title: "Pseudo Element Gambling Hover",
+          image: "/images/gambling-psuedo-element-hover-aug-01-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/mEGZbY?editors=0100#1",
+        },
+        {
+          title: "Rotate Rubiks Menu Item",
+          image: "/images/rotate-rubiks-menu-item-aug-2-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/JKaXkr?editors=0100#1",
+        },
+        {
+          title: "Hue Rotation",
+          image: "images/hue-rotation-aug-03-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/bZmGOB?editors=0100#1",
+        },
+        {
+          title: "Cubic-bezier Load Left",
+          image: "images/cubic-bezier-button-load-left.gif",
+          link: "https://codepen.io/bloom-dan/pen/jAZvkz?editors=0100#1",
+        },
+        {
+          title: "Active State Button Animation",
+          image:
+            "images/back-to-top-button-hover-active-labels-aug-08-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/XKyaAE?editors=0100#1",
+        },
+        {
+          title: "Flat Button :hover Shadow",
+          image: "images/flat-button-shadow-hover.gif",
+          link: "https://codepen.io/bloom-dan/pen/akPjqW?editors=0100#1",
+        },
+        {
+          title: "Flat UI Grid + Dots",
+          image: "images/flat-grid-w-glare-aug-22-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/grJoLZ?editors=0100#1",
+        },
+        {
+          title: "FB Flat Loading Shimmer",
+          image: "images/facebook-loading-shimmer-aug-23-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/OXYQay?editors=0100#1",
+        },
+        {
+          title: "Subtle Linear Gradient Shift on Hover",
+          image: "images/subtle-linear-gradient-text-aug-29-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/ZpzYKV?editors=0100#1",
+        },
+        {
+          title: "Flat Buttons' Striped Pseudo Shadows",
+          image: "images/flat-buttons-psuedo-striped-shadows-aug-30-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/dpbWRz?editors=0100#1",
+        },
+        {
+          title: "1 Elemenet Pseudo Hamburgers",
+          image: "images/1-element-pseudo.png",
+          link: "https://codepen.io/bloom-dan/pen/bwpabj?editors=0100#1",
+        },
+        {
+          title: "Ace full height footer",
+          image: "images/ace-full-height-footer.gif",
+          link: "https://codepen.io/bloom-dan/pen/rrLdok?editors=0100#1",
+        },
+        {
+          title: "CSS only menu from left",
+          image: "images/checkbox-menu-from-left.gif",
+          link: "https://codepen.io/bloom-dan/pen/QKEAbB?editors=0100#1",
+        },
+        {
+          title: "Flat buttons linear lengthen",
+          image: "images/flat-button-linear-lengthen-sep-18-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/ozzgoz?editors=0100#1",
+        },
+        {
+          title: "Button 1px down on click",
+          image: "images/translate-down-on-click.gif",
+          link: "https://codepen.io/bloom-dan/pen/mAREaN?editors=0100#1",
+        },
+        {
+          title: "Highlighter menu highlights",
+          image: "images/highlight-menu-accents-sep-22-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/pERYkE?editors=0100#1",
+        },
+        {
+          title: "404-y glitch animation",
+          image: "images/glitch-animation-sept-29-16.gif",
+          link: "https://codepen.io/bloom-dan/pen/ozZEPA?editors=0100#1",
+        },
+        {
+          title: "Floating hashed windows",
+          image: "images/floating-hashed-backgrounds-oct-7-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/JRpKoL?editors=0100#1",
+        },
+        {
+          title: "Basic D3 Bar Chart w/ Tip",
+          image: "images/basic-d3-bar-chart-with-tip-oct-9-16.gif",
+          link: "https://codepen.io/bloom-dan/pen/RGxxxV?editors=0100#1",
+        },
+        {
+          title: "D3 Bubble Bar Chart",
+          image: "images/d3-bubble-chart-oct-28-2016.gif",
+          link: "https://codepen.io/bloom-dan/pen/amApBm?editors=0100#1",
+        },
+        {
+          title: "CSS only color filter",
+          image: "images/css-only-color-filter-nov-16-16.gif",
+          link: "https://codepen.io/bloom-dan/pen/yVaqVQ?editors=0100#1",
+        },
+        {
+          title: "CSS Counter Cards",
+          image: "images/css-counter-cards-nov-20-16.gif",
+          link: "https://codepen.io/bloom-dan/pen/gLmabb?editors=0100#1",
+        },
+        {
+          title: "Animated Vision Circles",
+          image: "images/trippy-css-circles-nov-22-16.gif",
+          link: "https://codepen.io/bloom-dan/pen/jVmwaB?editors=0100#1",
+        },
+        {
+          title: "Mobile First Linked Banner",
+          image: "images/mobile-first-linked-banner-jan-03-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/GrRXWe?editors=0100#1",
+        },
+        {
+          title: "Obama's Keyframe Button",
+          image: "images/obamas-keyframe-button-jan-30-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/GryVoK?editors=0100#1",
+        },
+        {
+          title: "Form w/ Floating Labels",
+          image: "images/form-with-floating-labels_mar-07-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/NpbbrV?editors=0100#1",
+        },
+        {
+          title: "Spin in Button",
+          image: "images/spin-button-sept-20-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/GMZbJY?editors=0100#1",
+        },
+        {
+          title: "Fill up Button",
+          image: "images/fill-up-button-oct-23-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/zEQLqm?editors=0100#1",
+        },
+        {
+          title: "Agree or Die Button",
+          image: "images/agree-or-die-button-oct-26-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/gGVdeR?editors=0100#1",
+        },
+        {
+          title: "Underline, Engage Right",
+          image: "images/underline-engage-right-nov-8-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/NwbvYX?editors=0100#1",
+        },
+        {
+          title: "Sale Tag Shadow",
+          image: "images/sale-tag-shadow-feb-18-2018.png",
+          link: "https://codepen.io/bloom-dan/pen/mqvdQy?editors=0100#1",
+        },
+        {
+          title: "The Bop It Buttons",
+          image: "images/the-bop-it-buttons-sept-25-2017.gif",
+          link: "https://codepen.io/bloom-dan/pen/QqGQor?editors=0100#1",
+        },
+        {
+          title: "Footer Links Grow",
+          image: "images/menu-links-grow-feb-27-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/QQzdbe?editors=0100#1",
+        },
+        {
+          title: "Arrow Linked Locations",
+          image: "images/arrow-linked-locations-march-3-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/aqxKNj?editors=0100#1",
+        },
+        {
+          title: "✅ Ticket Keyframe",
+          image: "images/completed-ticket-keyframe-nov-04-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/GYgXqL?editors=0100",
+        },
+        {
+          title: "Moving Menu Accent onScroll",
+          image: "images/menu-accent-onscroll-nov-04-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/aQzNwJ?editors=0100#1",
+        },
+        {
+          title: "attr shuffle",
+          image: "images/attr-shuffle-nov-04-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/pQvPKj?editors=0100#1",
+        },
+        {
+          title: "button 's watching",
+          image: "images/eyeball-button-nov-05-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/dQodRW?editors=0010",
+        },
+        {
+          title: "head + heart poly",
+          image: "images/head-and-heart-low-poly-nov-10-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/EOPGKo?editors=0010",
+        },
+        {
+          title: "staggered burger",
+          image: "images/staggered-burger-nov-14-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/BGRZqj?editors=0100",
+        },
+        {
+          title: "begin scrolling",
+          image: "images/begin-scroll-nov-18-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/qQPVJX?editors=0100",
+        },
+        {
+          title: "topsy turvy",
+          image: "images/topsy-turvy-nov-19-2018.gif",
+          link: "https://codepen.io/bloom-dan/pen/oQGrOo?editors=0100",
+        },
+      ];
+      items.reverse();
 
-    var count = 0;
-    var grid = document.getElementById("grid");
+      var count = 0;
+      var grid = document.getElementById("grid");
 
-    items.forEach(function (val, i) {
-      item = items[i];
-      count++;
-      grid.innerHTML +=
-        '<a class="grid-item" href="' +
-        item.link +
-        '">' +
-        '<img src="' +
-        item.image +
-        '">' +
-        '<span class="tooltiptext">' +
-        item.title +
-        "</span>" +
-        '<span class="bottom-bar">View on CodePen</span>' +
-        "</a>";
-    });
+      items.forEach(function(val, i) {
+        item = items[i];
+        count++;
+        grid.innerHTML +=
+          '<a class="grid-item" href="' +
+          item.link +
+          '">' +
+          '<img src="' +
+          item.image +
+          '">' +
+          '<span class="tooltiptext">' +
+          item.title +
+          "</span>" +
+          '<span class="bottom-bar">View on CodePen</span>' +
+          "</a>";
+      });
 
-    document.getElementById("pen-count").textContent = "Count: " + count;
-  </script>
-</body>
+      document.getElementById("pen-count").textContent = "Count: " + count;
+    </script>
+  </body>
+</html>
