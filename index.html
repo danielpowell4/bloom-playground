@@ -134,28 +134,38 @@
         transition: opacity 654ms ease-in-out;
       }
 
-      .logo img {
-        position: fixed;
+      .logos {
+        display: flex;
+        flex-direction: column;
         z-index: 9;
-        top: 0;
-        left: 0;
-        max-width: 12vw;
-        border-right: 0.5rem solid #dfebf1;
+        position: fixed;
       }
 
-      @media screen and (min-width: 640px) {
-        .logo {
-          position: fixed;
-          max-width: 100%;
-        }
+      .logos img {
+        width: 36px;
+        height: 36px;
       }
+
+      .site-logo {
+        margin-bottom: 4px;
+      }
+
     </style>
   </head>
 
   <body>
     <nav>
-      <aside class="logo">
-        <img src="/images/bloom-logo-80.png" alt="Bloom Interactive Logo" />
+      <aside class="logos">
+        <img class="site-logo" src="/images/bloom-logo-80.png" alt="Bloom Interactive Logo" />
+        <a href="//codepen.io/bloom-dan/">
+          <img src="/icons/codepen.svg" alt="Codepen profile" />
+        </a>
+        <a href="//medium.com/@dan_bloom">
+          <img src="/icons/medium.svg" alt="Medium blog" />
+        </a>
+        <a href="mailto:dan@gobloom.io?subject=Hey Dan!">
+          <img src="/icons/mail.svg" alt="Send email" />
+        </a>
       </aside>
     </nav>
     <div class="main-wrap">
