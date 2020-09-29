@@ -150,14 +150,17 @@
       .site-logo {
         margin-bottom: 4px;
       }
-
     </style>
   </head>
 
   <body>
     <nav>
       <aside class="logos">
-        <img class="site-logo" src="/images/bloom-logo-80.png" alt="Bloom Interactive Logo" />
+        <img
+          class="site-logo"
+          src="/images/bloom-logo-80.png"
+          alt="Bloom Interactive Logo"
+        />
         <a href="//codepen.io/bloom-dan/">
           <img src="/icons/codepen.svg" alt="Codepen profile" />
         </a>
@@ -461,13 +464,18 @@
           image: "images/rotating-frame-nov-24-2018.gif",
           link: "https://codepen.io/bloom-dan/pen/MzGZqx?editors=0100",
         },
+        {
+          title: "Gone Surfing",
+          image: "images/text-decoration-wavy-sept-29-2020.gif",
+          link: "https://codepen.io/bloom-dan/pen/GRorGoy?editors=1100",
+        },
       ];
       items.reverse();
 
       var count = 0;
       var grid = document.getElementById("grid");
 
-      items.forEach(function(val, i) {
+      items.forEach(function (val, i) {
         item = items[i];
         count++;
         grid.innerHTML +=
